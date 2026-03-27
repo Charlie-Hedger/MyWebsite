@@ -1,0 +1,692 @@
+/* =========================================
+   1. GLOBAL SETTINGS & FONTS
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Libre+Baskerville:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background: #f5f5f5;
+    color: #111;
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. SHARED COMPONENTS (Header/Footer)
+   ========================================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px;
+}
+
+.logo a {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 22px;
+    text-decoration: none;
+    color: #000;
+}
+
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.6;
+}
+
+.contact-btn {
+    background: #000;
+    color: #fff !important; /* Ensures text stays white */
+    padding: 12px 22px;
+    font-weight: 600;
+}
+
+/* =========================================
+   3. ABOUT SECTION
+   ========================================= */
+.about-section {
+    max-width: 1100px;
+    margin: 120px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.about-section h1 {
+    font-family: 'Libre Baskerville', serif;
+    letter-spacing: 3px;
+    margin-bottom: 60px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.about-content img {
+    width: 100%;
+    display: block;
+}
+
+.about-text {
+    text-align: left;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* =========================================
+   4. CREDITS PAGE
+   ========================================= */
+.credits-page {
+    max-width: 1000px;
+    margin: 120px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.credits-page h2, 
+.credits-page h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 600;
+}
+
+.credits-page section { margin-bottom: 60px; }
+.credits-page h2 { margin-bottom: 20px; }
+.credits-page h3 { margin-top: 25px; margin-bottom: 10px; }
+
+.credits-page ul { list-style: none; }
+.credits-page li { margin: 8px 0; color: #333; }
+
+/* =========================================
+   5. SERVICES PAGE ONLY (.services-page)
+   ========================================= */
+.services-page .page-title {
+    text-align: center;
+    font-family: 'Libre Baskerville', serif; /* Matched to site logo/headings */
+    font-size: 2.8rem;
+    font-weight: 400;
+    margin: 40px 0 80px 0;
+}
+
+.services-page .overlap-container {
+    position: relative;
+    max-width: 1050px; /* Slightly wider to match original look */
+    margin: 0 auto 180px auto;
+    height: 850px; /* Increased height to account for taller vertical images */
+}
+
+.services-page .image-box {
+    position: absolute;
+    width: 48%; /* Narrower width helps achieve the vertical look */
+}
+
+.services-page .image-box img {
+    width: 100%;
+    aspect-ratio: 4 / 5; /* Forces the vertical rectangular shape from your screenshots */
+    object-fit: cover;   /* Ensures image fills the 4:5 box without stretching */
+    display: block;
+}
+
+.services-page .box-left {
+    top: 0;
+    left: 5%; /* Slight offset from the very edge */
+    z-index: 1;
+    
+}
+
+.services-page .box-right {
+    top: 220px; /* The vertical "stagger" from the original site */
+    right: 5%;
+    z-index: 2;
+}
+
+.services-page .box-left img {
+    object-position: 10% center; 
+}
+
+/* For the Right Image (Camera Assistant) */
+/* This shifts the image content slightly to the right within the frame */
+.services-page .box-right img {
+    object-position: 80% center;
+}
+
+.services-page .caption {
+    font-family: 'Libre Baskerville', serif;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+
+/* Services Grid */
+.services-page .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;          /* Increased gap to create more white space between smaller items */
+    max-width: 900px;   /* Reduced from 1100px to scale the whole section down */
+    margin: 80px auto;  /* Centers the grid on the page */
+    padding: 0 40px;
+}
+
+.services-page .grid-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures the button and title stay centered under the video */
+}
+
+.services-page .grid-video {
+    width: 100%;        /* Now fills 100% of the smaller 900px container */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 20px;
+    display: block;
+    background-color: #000;
+}
+
+/* Matching the specific title style from the photo */
+.services-page .grid-title {
+    display: inline-block;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;    /* Slightly smaller font */
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1.5px solid #000; /* Distinct underline */
+    padding-bottom: 2px;
+    margin-bottom: 25px;
+}
+
+/* Scaled down Portfolio Button */
+.services-page .portfolio-link {
+    display: block;
+    width: 100%;        /* Matches the width of the video above it */
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 0;    /* Slightly slimmer padding */
+    font-size: 0.7rem;  /* Small, clean caps */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.3s ease;
+}
+
+/* =========================================
+   6. RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+    header { padding: 20px 40px; flex-direction: column; gap: 20px; }
+    
+    .about-content { grid-template-columns: 1fr; }
+
+    .services-page .overlap-container { height: auto; margin-bottom: 50px; }
+    .services-page .image-box { position: relative; width: 100%; top: 0 !important; margin-bottom: 40px; }
+    .services-page .portfolio-grid { grid-template-columns: 1fr; } }
+
+    /* =========================================
+   SPLIT LAYOUT PAGES (Operator & Assistant)
+   ========================================= */
+
+/* Grouping both pages together to keep it neat */
+.operator-page .split-section,
+.assistant-page .split-section {
+    display: flex;
+    align-items: center;
+    min-height: 100vh; /* Set to 100vh to ensure full-page sections */
+    width: 100%;
+}
+
+.operator-page .split-section.reverse,
+.assistant-page .split-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.operator-page .split-text,
+.assistant-page .split-text {
+    flex: 1;
+    padding: 0 10%; 
+}
+
+.operator-page .split-text h1,
+.assistant-page .split-text h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.operator-page .split-text p,
+.assistant-page .split-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: #333;
+    max-width: 480px; /* Tightened slightly to match screenshots better */
+}
+
+.operator-page .split-image,
+.assistant-page .split-image {
+    flex: 1;
+    height: 100vh;
+}
+
+.operator-page .split-image img,
+.assistant-page .split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .operator-page .split-section, 
+    .operator-page .split-section.reverse,
+    .assistant-page .split-section,
+    .assistant-page .split-section.reverse {
+        flex-direction: column;
+    }
+
+    .operator-page .split-image,
+    .assistant-page .split-image {
+        height: 50vh;
+        width: 100%;
+    }
+
+    .operator-page .split-text,
+    .assistant-page .split-text {
+        padding: 60px 20px;
+        order: 2;
+    }
+
+}
+/* --- Fine-Tuning the Assistant Intro Image --- */
+
+/* Targets ONLY the image inside the 'assistant-intro' section */
+.assistant-page .assistant-intro .split-image img {
+    /* Shifts the image content right within the crop */
+    /* Adjust '80%' up (to 90% or 100%) to push it further right */
+    object-position: 80% center; 
+}
+
+.assistant-page .split-section.reverse .split-image img {
+    /* Adjust this: 100% shows the far right, 0% shows the far left */
+    object-position: 45% center;
+    object-fit: cover;
+}
+
+.assistant-page .assistant-three .split-image img {
+    /* Shifts the image content right within the crop */
+    /* Adjust '80%' up (to 90% or 100%) to push it further right */
+    object-position: 40% center; 
+}
+
+/* =========================================
+   WILDLIFE & DOC PAGE (.wildlife-page)
+   ========================================= */
+
+.wildlife-page .gallery-header {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.wildlife-page .gallery-header h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.wildlife-page .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* THREE columns instead of two */
+    gap: 40px; 
+    max-width: 2200px; /* Adjust this to 1000px if you want the videos even smaller */
+    margin: 0 auto 100px auto;
+    padding: 0 40px;
+}
+
+/* Ensure the text and buttons scale nicely in narrower columns */
+.wildlife-page .project-title {
+    font-size: 1.15rem; /* Slightly smaller to fit the 3-col layout */
+}
+
+.wildlife-page .project-desc {
+    font-size: 0.85rem;
+    min-height: 60px; /* Keeps buttons aligned if descriptions are different lengths */
+}
+
+/* Responsive: Flip to 1 column on mobile/small tablets */
+@media (max-width: 1024px) {
+    .wildlife-page .project-grid {
+        grid-template-columns: 1fr; 
+        max-width: 600px; /* Keeps the single column from getting too wide */
+    }
+}
+
+.wildlife-page .project-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.wildlife-page .project-media {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.wildlife-page .project-media img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Cinematic landscape ratio */
+    object-fit: cover;
+    display: block;
+}
+
+.wildlife-page .project-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.wildlife-page .project-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    max-width: 90%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 800px) {
+    .wildlife-page .project-grid {
+        grid-template-columns: 1fr; /* Stack into 1 column on tablets/phones */
+        gap: 50px;
+    }
+
+    .wildlife-page .gallery-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* --- Video Embed Responsiveness --- */
+.wildlife-page .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #000;
+}
+
+.wildlife-page .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Project Text & Descriptions --- */
+.wildlife-page .project-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.wildlife-page .project-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.wildlife-page .project-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* --- Learn More Button (Matched to Portfolio Button) --- */
+.wildlife-page .learn-more-btn {
+    display: block;
+    width: 100%; /* Spans the width of the video above */
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 0;
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    transition: opacity 0.3s ease;
+}
+
+.wildlife-page .learn-more-btn:hover {
+    opacity: 0.8;
+}
+
+/* --- Mobile Fix --- */
+@media (max-width: 800px) {
+    .wildlife-page .project-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+}
+
+/* Override for 2-column layouts */
+.wildlife-page .project-grid.two-column-grid {
+    grid-template-columns: repeat(2, 1fr); /* Only 2 items across */
+    max-width: 2000px; /* Pulls them in slightly so they don't get too massive */
+}
+
+/* On mobile, they should still drop to 1 column */
+@media (max-width: 800px) {
+    .wildlife-page .project-grid.two-column-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   PROJECT DETAIL PAGE (.project-detail)
+   ========================================= */
+
+/* (Keep previous .project-hero and .project-info CSS the same) */
+
+/* --- BTS Grid --- */
+.project-detail .bts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 40px; /* Slight padding from screen edge */
+    margin-bottom: 80px;
+    max-width: 1400px; /* Limits the grid width on very large screens */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-detail .bts-item {
+    width: 100%;
+}
+
+/* 4:5 Aspect Ratio Locking (Industry Standard Trick) */
+.project-detail .bts-item .ratio-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 125%; /* 5 / 4 = 1.25, or 125% (for 4:5 vertical) */
+    height: 0;
+    overflow: hidden;
+    background: #f4f4f4; /* Subtle loading placeholder */
+}
+
+/* Ensure the image fills the wrapper without distortion */
+.project-detail .bts-item .ratio-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops the image to fill the shape */
+    object-position: center; /* Centers the crop */
+    display: block;
+}
+
+/* (Keep previous .final-video CSS the same) */
+
+/* --- Responsive Fix --- */
+@media (max-width: 800px) {
+    /* (Keep previous text stacking CSS) */
+    
+    .project-detail .bts-grid {
+        grid-template-columns: 1fr; /* Stack images on mobile */
+        gap: 15px;
+        padding: 0 20px;
+    }
+}
+
+/* --- New Side-by-Side Header --- */
+.project-detail .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns title to the top of the text block */
+    max-width: 1200px;
+    margin: 100px auto 60px;
+    padding: 0 40px;
+    gap: 80px; /* Space between title and text */
+}
+
+.project-detail .header-left {
+    flex: 1; /* Takes up the left side */
+}
+
+.project-detail .header-left h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.project-detail .header-right {
+    flex: 1.5; /* Takes up slightly more space than the title */
+}
+
+.project-detail .header-right p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Mobile Fix: Stack them when the screen gets narrow */
+@media (max-width: 900px) {
+    .project-detail .project-header {
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 60px;
+    }
+    
+    .project-detail .header-left h1 {
+        font-size: 2.2rem;
+    }
+}
+/* --- Final Centered Video --- */
+.project-detail .final-video {
+    max-width: 900px; /* Adjust this if you want the video larger/smaller */
+    margin: 0 auto 120px auto; /* 120px bottom margin for breathing room */
+    padding: 0 40px;
+}
+
+.project-detail .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Perfect 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    background: #000; /* Black background while loading */
+}
+
+.project-detail .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Mobile Tweak */
+@media (max-width: 800px) {
+    .project-detail .final-video {
+        margin-bottom: 80px;
+        padding: 0 20px;
+    }
+}
+/* --- Final Centered Video --- */
+.project-detail .final-video {
+    max-width: 900px; /* Adjust this if you want the video larger/smaller */
+    margin: 0 auto 120px auto; /* 120px bottom margin for breathing room */
+    padding: 0 40px;
+}
+
+.project-detail .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Perfect 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    background: #000; /* Black background while loading */
+}
+
+.project-detail .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Mobile Tweak */
+@media (max-width: 800px) {
+    .project-detail .final-video {
+        margin-bottom: 80px;
+        padding: 0 20px;
+    }
+}
+
+/* --- Adjusting the Center Focus for Red Deer BTS --- */
+
+/* Targets the specific filenames in your HTML */
+.project-detail .bts-grid img[src$="Red-Deer-BTS-2.jpg"],
+.project-detail .bts-grid img[src$="Red-Deer-BTS-4.jpg"] {
+    /* 100% shows the far right, 0% shows the far left */
+    object-position: 0% center !important; 
+    object-fit: cover !important; /* Kept from previous rule */
+}
+
+.project-detail .video-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #888;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.project-detail .final-video {
+    margin-bottom: 120px; /* Big gap between the two videos */
+}
