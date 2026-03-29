@@ -267,21 +267,24 @@ nav a:hover {
     } 
 
     /* --- About Section Mobile Stacking Fix --- */
-    .about-content { 
-        grid-template-columns: 1fr; /* Switch from 2 cols to 1 col */
-        gap: 30px; /* Reduces the large 60px desktop gap */
-        padding: 0 20px; /* Optional: Adds safety padding to the edges */
+    .about-section .about-content { 
+        display: flex !important;           /* Switch from Grid to Flex */
+        flex-direction: column !important;  /* Force vertical stacking */
+        gap: 30px !important; 
+        padding: 0 20px !important;
     }
 
-    .about-text { 
-        text-align: left; /* Keep text left-aligned for readability */
-        padding: 0 10px; /* Optional: Slight padding for the text block */
+    .about-section .about-content img {
+        width: 100% !important;
+        height: auto !important;
+        margin-bottom: 10px;
     }
 
-    .about-section h1 { 
-        margin-bottom: 40px; /* Tighten up the space below the title */
-        font-size: 2rem; /* Optional: Scale down h1 slightly for mobile */
-    } 
+    .about-section .about-text { 
+        text-align: left !important; 
+        padding: 0 10px !important;
+        width: 100% !important;             /* Ensure it takes full width */
+    }
 }
 
     /* =========================================
