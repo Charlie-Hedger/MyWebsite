@@ -224,9 +224,7 @@ nav a:hover {
     transition: background 0.3s ease;
 }
 
-/* =========================================
-   6. RESPONSIVE DESIGN
-   ========================================= */
+
 /* =========================================
    6. RESPONSIVE DESIGN (Services Mobile Fix)
    ========================================= */
@@ -267,6 +265,24 @@ nav a:hover {
         padding: 0 20px !important;
         gap: 40px !important;
     } 
+
+    /* --- About Section Mobile Stacking Fix --- */
+    .about-content { 
+        grid-template-columns: 1fr; /* Switch from 2 cols to 1 col */
+        gap: 30px; /* Reduces the large 60px desktop gap */
+        padding: 0 20px; /* Optional: Adds safety padding to the edges */
+    }
+
+    .about-text { 
+        text-align: left; /* Keep text left-aligned for readability */
+        padding: 0 10px; /* Optional: Slight padding for the text block */
+    }
+
+    .about-section h1 { 
+        margin-bottom: 40px; /* Tighten up the space below the title */
+        font-size: 2rem; /* Optional: Scale down h1 slightly for mobile */
+    } 
+}
 }
     /* =========================================
    SPLIT LAYOUT PAGES (Operator & Assistant)
