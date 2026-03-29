@@ -690,3 +690,30 @@ nav a:hover {
 .project-detail .final-video {
     margin-bottom: 120px; /* Big gap between the two videos */
 }
+
+/* Mobile Navigation Fix */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* Stacks name above the links */
+        align-items: center;    /* Centers everything */
+        padding: 20px 10px;     /* Gives it some breathing room */
+        gap: 15px;              /* Space between name and links */
+    }
+
+    header nav {
+        display: flex;
+        flex-wrap: wrap;       /* Allows links to drop to a second line if needed */
+        justify-content: center;
+        gap: 10px;             /* Space between individual links */
+    }
+
+    header nav a {
+        font-size: 0.85rem;    /* Slightly smaller text to help it fit */
+        padding: 5px 8px;      /* Better tap targets for fingers */
+    }
+
+    /* If you have the Contact button styled differently */
+    header .contact-btn {
+        margin-left: 0;        /* Removes the large gap used on desktop */
+    }
+}
